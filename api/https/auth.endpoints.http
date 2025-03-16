@@ -1,0 +1,16 @@
+POST http://localhost:3001/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "test",
+    "email": "test@gmail.com",
+    "password": "password"
+}
+
+POST http://localhost:3001/api/auth/signin
+Content-Type: application/json
+
+{
+    "email": "mohamedramadan8893@gmail.com",
+    "password": "mohamedramadan8893"
+}
