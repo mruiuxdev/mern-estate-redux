@@ -7,6 +7,7 @@ import {
   signInStart,
   signInSuccess,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
   const [formData, setFormData] = useState({});
@@ -70,7 +71,10 @@ export default function SignIn() {
         <Button disabled={loading} type="submit">
           {loading ? "Signing in" : "Sign in"}
         </Button>
-        <p className="text-center text-sm font-normal">
+      </form>
+      <div className="flex flex-col mt-4 max-w-md w-full">
+        <OAuth />
+        <p className="text-center text-sm font-normal mt-2">
           Don't have an account?{" "}
           <span className="font-medium">
             <Link to="/sign-up" className="text-primary underline">
@@ -78,7 +82,7 @@ export default function SignIn() {
             </Link>
           </span>
         </p>
-      </form>
+      </div>
     </div>
   );
 }
