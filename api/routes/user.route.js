@@ -1,8 +1,10 @@
 import { Router } from "express";
-import { getUser } from "../controllers/user.controller.js";
+import { getUser, updateUser } from "../controllers/user.controller.js";
+import { verifyToken } from "../utils/verifyUser.js";
 
-const route = Router();
+const router = Router();
 
-route.get("/", getUser);
+router.get("/", getUser);
+router.post("/update/:id", verifyToken, updateUser);
 
-export default route;
+export default router;

@@ -56,7 +56,9 @@ export function Header() {
                 </span>
               </Dropdown.Header>
               <Dropdown.Item as="div">
-                <Link to="/profile">Profile</Link>
+                <Link to="/profile" className="w-full">
+                  Profile
+                </Link>
               </Dropdown.Item>
             </Dropdown>
           </Navbar.Link>
