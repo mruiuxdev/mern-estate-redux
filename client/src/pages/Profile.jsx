@@ -16,6 +16,8 @@ import {
   deleteUserFailure,
   deleteUserInSuccess,
   deleteUserStart,
+  signOutUserFailure,
+  signOutUserInSuccess,
   updateUserFailure,
   updateUserInSuccess,
   updateUserStart,
@@ -113,6 +115,22 @@ export default function Profile() {
       navigate("/sign-in");
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
+    }
+  };
+
+  const handleSignout = async () => {
+    try {
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+
+      if (data.success === false) {
+        dispatch(signOutUserFailure(data.message));
+        return;
+      }
+
+      dispatch(signOutUserInSuccess(data));
+    } catch (error) {
+      dispatch(signOutUserFailure(error.message));
     }
   };
 
@@ -215,7 +233,10 @@ export default function Profile() {
         >
           {loading ? "Deleting" : "Delete account"}{" "}
         </span>
-        <span className="text-red-700 cursor-pointer">Sign out</span>
+        <span className="text-red-700 cursor-pointer" onClick={handleSignout}>
+          {" "}
+          {loading ? "Signing out" : "Sign out"}{" "}
+        </span>
       </div>
     </div>
   );
