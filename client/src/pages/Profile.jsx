@@ -11,7 +11,7 @@ import { useState } from "react";
 import { HiInformationCircle } from "react-icons/hi";
 import { RiImageCircleFill } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   deleteUserFailure,
   deleteUserInSuccess,
@@ -224,6 +224,11 @@ export default function Profile() {
         </div>
         <Button disabled={loading} type="submit">
           {loading ? "Updating" : "Update"}
+        </Button>
+        <Button as="div" outline gradientDuoTone="purpleToBlue">
+          <Link className="d-block w-full" to="/create-listing">
+            Create Listing
+          </Link>
         </Button>
       </form>
       <div className="flex justify-between max-w-md w-full  mt-5">
